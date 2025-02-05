@@ -10,17 +10,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // ================================
     // ✅ MENÚ HAMBURGUESA (Para móviles)
     // ================================
-    const menuToggle = document.getElementById("menu-toggle");
-    const navbar = document.getElementById("navbar");
+    const menuBtn = document.getElementById("menu-toggle");
+    const navbar = document.querySelector("nav");
 
-    if (menuToggle && navbar) {
-        menuToggle.addEventListener("click", function () {
+    // ✅ Mostrar/Ocultar menú en móviles
+    if (menuBtn && navbar) {
+        menuBtn.addEventListener("click", function () {
             navbar.classList.toggle("show");
         });
 
         // Cerrar menú si se hace clic fuera de él
         document.addEventListener("click", function (event) {
-            if (!navbar.contains(event.target) && event.target !== menuToggle) {
+            if (!navbar.contains(event.target) && event.target !== menuBtn) {
                 navbar.classList.remove("show");
             }
         });

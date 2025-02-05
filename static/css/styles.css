@@ -46,38 +46,31 @@ body {
 }
 
 /* ========================== */
-/* 🔹 NAVBAR (Escritorio y Desplegable en Móviles) */
+/* 🔹 NAVBAR (Siempre visible en escritorio, oculto en móviles) */
 /* ========================== */
 nav {
     position: fixed;
     top: 0;
-    left: -250px; /* Escondido fuera de la pantalla */
-    width: 250px;
-    height: 100vh;
+    left: 0;
+    width: 100%;
     background-color: #2c3e50;
-    padding-top: 60px;
-    transition: left 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
 
-/* Cuando el navbar está activo */
-nav.show {
-    left: 0;
-}
-
-/* ========================== */
-/* 📌 ENLACES DEL NAVBAR */
-/* ========================== */
 .nav-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: left;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .nav-links li {
-    padding: 15px 20px;
+    display: inline;
 }
 
 .nav-links a {
@@ -182,6 +175,26 @@ form button:hover {
 
     /* Navbar oculto por defecto */
     nav {
-        left: -250px;
+        transform: translateY(-100%);
+        position: fixed;
+        left: 0;
+        width: 100%;
+        background-color: #2c3e50;
+        padding: 15px 0;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mostrar el navbar cuando tenga la clase "show" */
+    nav.show {
+        transform: translateY(0);
+    }
+
+    /* Estilos de navegación en móviles */
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding-top: 15px;
     }
 }

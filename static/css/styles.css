@@ -1,6 +1,4 @@
-/* ========================== */
-/* 🎨 ESTILOS GENERALES */
-/* ========================== */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,32 +8,29 @@ body {
     padding-top: 60px; /* Para evitar que el menú fije contenido encima */
 }
 
-/* ========================== */
-/* 📌 BREADCRUMBS (Siempre visibles y centrados) */
-/* ========================== */
 #breadcrumbs {
     position: fixed;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 16px;
-    color: #555;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 5px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: #2c3e50;
+    padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 900;
+    z-index: 1000;
+    text-align: center;
 }
 
-/* ========================== */
-/* 📌 BOTÓN MENÚ DESPLEGABLE */
-/* ========================== */
+
 .menu-btn {
     position: fixed;
     top: 15px;
     left: 10px;
     background-color: #1d2934;
-    color: #333;
+    color: #ffffff;
     border: none;
     padding: 10px;
     font-size: 24px;
@@ -46,9 +41,7 @@ body {
 
 }
 
-/* ========================== */
-/* 🔹 MENÚ DESPLEGABLE DESDE LA IZQUIERDA */
-/* ========================== */
+
 .menu {
     position: fixed;
     top: 0;
@@ -93,9 +86,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ========================== */
-/* 🚪 BOTÓN CERRAR SESIÓN */
-/* ========================== */
+
 #logout-button {
     display: block;
     background-color: #ff4d4d;
@@ -113,9 +104,7 @@ body {
     background-color: #cc0000;
 }
 
-/* ========================== */
-/* 📝 FORMULARIOS (Login, Pedidos) */
-/* ========================== */
+
 form {
     background-color: #f9f9f9;
     padding: 20px;
@@ -153,9 +142,7 @@ form button:hover {
     background-color: #45a049;
 }
 
-/* ========================== */
-/* 📌 SECCIÓN DE PEDIDOS */
-/* ========================== */
+
 #pedidos-container {
     margin: 20px auto;
     width: 80%;
@@ -174,9 +161,6 @@ form button:hover {
     text-align: left;
 }
 
-/* ========================== */
-/* 🚀 RESPONSIVE DESIGN */
-/* ========================== */
 @media screen and (max-width: 768px) {
     /* Breadcrumbs más pequeños */
     #breadcrumbs {

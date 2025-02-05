@@ -1,11 +1,13 @@
-
+/* ---- Navbar ---- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #2c3e50;
-    padding: 10px 20px;
+    padding: 15px 20px;
     color: white;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-links {
@@ -13,7 +15,7 @@ nav {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .nav-links li {
@@ -26,6 +28,7 @@ nav {
     font-weight: bold;
 }
 
+/* Breadcrumbs */
 #breadcrumbs {
     position: absolute;
     left: 50%;
@@ -34,43 +37,30 @@ nav {
     color: #ecf0f1;
 }
 
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
+/* Logout Button */
 #logout-button {
     background-color: #ff4d4d;
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
 #logout-button:hover {
     background-color: #cc0000;
 }
 
+/* ---- Formulario ---- */
 form {
     background-color: #f9f9f9;
     padding: 20px;
     margin: 20px auto;
-    width: 300px;
+    width: 350px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -83,10 +73,11 @@ form label {
 
 form input {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px;
 }
 
 form button {
@@ -97,12 +88,14 @@ form button {
     width: 100%;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 form button:hover {
     background-color: #45a049;
 }
 
+/* ---- Pedidos Container ---- */
 #pedidos-container {
     margin: 20px auto;
     width: 80%;
@@ -121,14 +114,7 @@ form button:hover {
     text-align: left;
 }
 
-#login-error {
-    color: red;
-    font-weight: bold;
-    display: none;
-    margin-top: 10px;
-}
-
-/* Fondo del login */
+/* ---- Estilos del Login ---- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -173,7 +159,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Labels visibles */
 .login-container label {
     display: block;
     text-align: left;
@@ -182,7 +167,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* Input mejorado con fondo visible */
 .login-container input {
     width: 100%;
     padding: 12px;
@@ -195,18 +179,15 @@ body {
     outline: none;
 }
 
-/* Placeholder en color más visible */
 .login-container input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Mejor visibilidad en hover y focus */
 .login-container input:focus {
     background: rgba(0, 0, 0, 0.5);
     border-color: white;
 }
 
-/* Botón estilizado */
 .login-container button {
     background: #4CAF50;
     color: white;
@@ -223,7 +204,6 @@ body {
     background: #45a049;
 }
 
-/* Mensaje de error */
 #login-error {
     color: #ff4d4d;
     font-weight: bold;

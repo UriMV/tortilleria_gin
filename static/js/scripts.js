@@ -5,8 +5,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const pedidosContainer = document.getElementById("pedidos-container");
     const loginForm = document.getElementById("login-form");
     const logoutButton = document.getElementById("logout-button");
-    const breadcrumbContainer = document.getElementById("breadcrumb");
+    const breadcrumbs = document.getElementById("breadcrumbs");
 
+    // ================================
+    // ✅ MENÚ HAMBURGUESA (Para móviles)
+    // ================================
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar");
+
+    if (menuToggle && navbar) {
+        menuToggle.addEventListener("click", function () {
+            navbar.classList.toggle("show");
+        });
+
+        // Cerrar menú si se hace clic fuera de él
+        document.addEventListener("click", function (event) {
+            if (!navbar.contains(event.target) && event.target !== menuToggle) {
+                navbar.classList.remove("show");
+            }
+        });
+    }
+
+    // ================================
+    // 📦 Cargar pedidos almacenados
+    // ================================
     function cargarPedidos() {
         console.log("Intentando cargar pedidos...");
 
@@ -32,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // ================================
+    // 📝 Guardar nuevos pedidos
+    // ================================
     if (form) {
         form.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -44,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem("pedidos", JSON.stringify(pedidos));
                 alert("Pedido creado correctamente.");
                 form.reset();
-                cargarPedidos(); // Asegura que el nuevo pedido se muestre inmediatamente
+                cargarPedidos();
             }
         });
     }
@@ -54,6 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
         cargarPedidos();
     }
 
+    // ================================
+    // 🔐 Manejo de Login
+    // ================================
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -69,9 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // ================================
+    // 🚪 Cerrar sesión
+    // ================================
     if (logoutButton) {
         if (localStorage.getItem("loggedIn") === "true") {
-            logoutButton.style.display = "block"; // Muestra el botón solo si el usuario está logueado
+            logoutButton.style.display = "block"; // Mostrar botón si está logueado
         }
 
         logoutButton.addEventListener("click", function () {
@@ -80,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Generar breadcrumbs dinámicamente
-    const breadcrumbs = document.getElementById("breadcrumbs");
-
+    // ================================
+    // 🧭 Generar breadcrumbs dinámicamente
+    // ================================
     function actualizarBreadcrumbs() {
         const rutas = {
             "/home": "Inicio",

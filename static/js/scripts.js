@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pedidosContainer = document.getElementById("pedidos-container");
     const loginForm = document.getElementById("login-form");
     const logoutButton = document.getElementById("logout-button");
+    const breadcrumbContainer = document.getElementById("breadcrumb");
 
     function cargarPedidos() {
         console.log("Intentando cargar pedidos...");
@@ -78,4 +79,26 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "/";
         });
     }
+
+    // ✅ Generar breadcrumbs dinámicamente
+    function generarBreadcrumbs() {
+        if (!breadcrumbContainer) return;
+
+        const rutas = {
+            "/home": "Inicio",
+            "/crear-pedido": "Crear Pedido",
+            "/consultar-pedido": "Consultar Pedidos"
+        };
+
+        let rutaActual = window.location.pathname;
+        let breadcrumbHTML = `<li><a href="/home">Inicio</a></li>`;
+
+        if (rutaActual !== "/home" && rutas[rutaActual]) {
+            breadcrumbHTML += `<li>${rutas[rutaActual]}</li>`;
+        }
+
+        breadcrumbContainer.innerHTML = breadcrumbHTML;
+    }
+
+    generarBreadcrumbs(); // Llamar la función al cargar la página
 });

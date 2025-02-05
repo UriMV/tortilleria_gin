@@ -106,3 +106,30 @@ form button:hover {
     display: none;
     margin-top: 10px;
 }
+
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.breadcrumb li {
+    margin-right: 10px;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.breadcrumb li::after {
+    content: ">";
+    margin-left: 10px;
+    color: #6c757d;
+}
+
+.breadcrumb li:last-child::after {
+    content: "";
+}

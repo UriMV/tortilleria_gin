@@ -15,6 +15,7 @@ func main() {
 	r.LoadHTMLGlob("templates/*")
 
 	// Definir rutas
+	
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", nil)
 	})

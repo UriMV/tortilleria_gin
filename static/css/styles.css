@@ -20,7 +20,7 @@ body {
     padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 900; /* Se reduce para que quede detrás del menú */
     text-align: center;
 }
 
@@ -52,7 +52,7 @@ body {
     padding-top: 60px;
     transition: left 0.3s ease;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 1001; /* Mayor que el de breadcrumbs */
 }
 
 /* Cuando el menú está activo */

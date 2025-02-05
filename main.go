@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -15,7 +16,6 @@ func main() {
 	r.LoadHTMLGlob("templates/*")
 
 	// Definir rutas
-	
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", nil)
 	})
@@ -23,7 +23,6 @@ func main() {
 	r.GET("/home", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
-
 
 	r.GET("/crear-pedido", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "crear_pedido.html", nil)
@@ -33,6 +32,20 @@ func main() {
 		c.HTML(http.StatusOK, "consultar_pedido.html", nil)
 	})
 
-	// Iniciar servidor
+	// Manejo de error 404 (Página no encontrada)
+	r.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusNotFound, "404.html", gin.H{
+			"title": "Página no encontrada",
+		})
+	})
+
+	// Ruta de prueba para error 500 (Error del servidor)
+	r.GET("/error", func(c *gin.Context) {
+		c.HTML(http.StatusInternalServerError, "500.html", gin.H{
+			"title": "Error interno del servidor",
+		})
+	})
+
+	// Iniciar servidor en el puerto 8080
 	r.Run(":8080")
 }

@@ -81,24 +81,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ✅ Generar breadcrumbs dinámicamente
-    function generarBreadcrumbs() {
-        if (!breadcrumbContainer) return;
+    const breadcrumbs = document.getElementById("breadcrumbs");
 
+    function actualizarBreadcrumbs() {
         const rutas = {
             "/home": "Inicio",
-            "/crear-pedido": "Crear Pedido",
-            "/consultar-pedido": "Consultar Pedidos"
+            "/crear-pedido": "Inicio > Crear Pedido",
+            "/consultar-pedido": "Inicio > Consultar Pedidos"
         };
 
-        let rutaActual = window.location.pathname;
-        let breadcrumbHTML = `<li><a href="/home">Inicio</a></li>`;
-
-        if (rutaActual !== "/home" && rutas[rutaActual]) {
-            breadcrumbHTML += `<li>${rutas[rutaActual]}</li>`;
-        }
-
-        breadcrumbContainer.innerHTML = breadcrumbHTML;
+        const rutaActual = window.location.pathname;
+        breadcrumbs.textContent = rutas[rutaActual] || "Inicio";
     }
 
-    generarBreadcrumbs(); // Llamar la función al cargar la página
+    actualizarBreadcrumbs();
 });
